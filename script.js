@@ -6,8 +6,8 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*()_+-=[]{}|;:,.<>?';
-const name = "Mark JP Tolentino";
-const fontSize = 14;
+const name = 'Mark JP Tolentino';
+const fontSize = 16;
 const columns = canvas.width / fontSize;
 const drops = [];
 const nameDrops = [];
@@ -21,7 +21,7 @@ function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px monospace';
-    ctx.fillStyle = '#0f0';
+    ctx.fillStyle = '#00bcd4';
 
     for (let i = 0; i < drops.length; i++) {
         let text = chars.charAt(Math.floor(Math.random() * chars.length));
@@ -46,17 +46,43 @@ function draw() {
 setInterval(draw, 33);
 
 // Typing Animation
-const text = "Mark JP Tolentino - Portfolio";
-let index = 0;
+const phrases = ['Cybersecurity Expert', 'Web Developer', 'Tech Innovator'];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 const typingText = document.getElementById('typing-text');
 
 function type() {
-    if (index < text.length) {
-        typingText.textContent += text.charAt(index);
-        index++;
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (!isDeleting && charIndex < currentPhrase.length) {
+        typingText.textContent += currentPhrase.charAt(charIndex);
+        charIndex++;
         setTimeout(type, 100);
+    } else if (isDeleting && charIndex > 0) {
+        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(type, 50);
+    } else if (!isDeleting && charIndex === currentPhrase.length) {
+        setTimeout(() => { isDeleting = true; type(); }, 1000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, 200);
     }
 }
+
+// Contact Form Handling
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    console.log('Form Submitted:', { name, email, message });
+    alert('Message sent! (Logged to console for demo purposes)');
+    contactForm.reset();
+});
 
 // Initialize AOS
 AOS.init();

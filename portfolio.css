@@ -1,7 +1,7 @@
 /* General Styling */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     background: #000;
     overflow-x: hidden;
@@ -9,8 +9,8 @@ body {
 }
 
 h1, h2, h4, h5 {
-    color: #0f0;
-    text-shadow: 0 0 10px #0f0;
+    color: #00bcd4;
+    text-shadow: 0 0 10px #00bcd4;
 }
 
 p {
@@ -19,9 +19,9 @@ p {
 }
 
 p:hover {
-    color: #0f0;
+    color: #00bcd4;
     transform: scale(1.02);
-    text-shadow: 0 0 5px #0f0;
+    text-shadow: 0 0 5px #00bcd4;
 }
 
 /* Matrix Background */
@@ -41,7 +41,7 @@ p:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     position: relative;
 }
 
@@ -71,7 +71,7 @@ p:hover {
 
 /* Content Sections */
 .content-section {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     padding: 30px;
     margin-bottom: 50px;
@@ -93,30 +93,30 @@ p:hover {
 
 .nav-link {
     color: #fff !important;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #0f0 !important;
-    text-shadow: 0 0 10px #0f0;
+    color: #00bcd4 !important;
+    text-shadow: 0 0 10px #00bcd4;
     transform: scale(1.1);
 }
 
 .nav-link.active {
-    color: #0f0 !important;
+    color: #00bcd4 !important;
 }
 
 /* Card Styling */
 .card {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     border: none;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card-hover:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
 }
 
 .card-img-top {
@@ -131,15 +131,15 @@ p:hover {
 }
 
 .card-title {
-    color: #0f0;
+    color: #00bcd4;
 }
 
 .profile-img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 2px solid #0f0;
-    box-shadow: 0 0 10px #0f0;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 10px #00bcd4;
 }
 
 /* Timeline */
@@ -161,7 +161,7 @@ p:hover {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #0f0;
+    background: #00bcd4;
 }
 
 .timeline-content {
@@ -172,7 +172,7 @@ p:hover {
 
 /* Skills Badges */
 .badge-primary {
-    background-color: #0f0;
+    background-color: #00bcd4;
     color: #000;
     font-size: 1rem;
     padding: 8px 15px;
@@ -181,14 +181,14 @@ p:hover {
 /* Form Styling */
 .form-control {
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #0f0;
+    border: 1px solid #00bcd4;
     color: #fff;
     transition: all 0.3s;
 }
 
 .form-control:focus {
-    border-color: #0f0;
-    box-shadow: 0 0 10px #0f0;
+    border-color: #00bcd4;
+    box-shadow: 0 0 10px #00bcd4;
 }
 
 .form-control::placeholder {
@@ -206,7 +206,7 @@ footer {
 
 .social-links a:hover {
     transform: scale(1.2);
-    color: #0f0 !important;
+    color: #00bcd4 !important;
 }
 
 /* Back to Top Button */
@@ -224,17 +224,21 @@ footer {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-    70% { box-shadow: 0 0 0 20px rgba(0, 255, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(0, 188, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 188, 212, 0); }
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .card-img-top {
         height: 150px;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
     }
 }
